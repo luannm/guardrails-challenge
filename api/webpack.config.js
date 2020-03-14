@@ -11,10 +11,10 @@ if (!isProduction) {
 }
 
 const entry = isProduction
-  ? [path.resolve(path.join(__dirname, './src/index.js'))]
+  ? [path.resolve(path.join(__dirname, './src/index.ts'))]
   : [
       'webpack/hot/poll?1000',
-      path.resolve(path.join(__dirname, './src/index.js'))
+      path.resolve(path.join(__dirname, './src/index.ts'))
     ];
 
 module.exports = {
@@ -32,7 +32,17 @@ module.exports = {
   module: {
     rules: [
       {
-        // Transpiles ES6-8 into ES5
+        test: /\.ts$/,
+        include: path.resolve(__dirname, 'src'),
+        exclude: /node_modules/,
+        use: {
+          loader: 'ts-loader',
+          options: {
+            transpileOnly: true
+          }
+        },
+      },
+      {
         test: /\.js$/,
         exclude: /node_modules/,
         use: {
@@ -44,5 +54,8 @@ module.exports = {
         }
       }
     ]
-  }
+  },
+  resolve: {
+    extensions: ['.js', '.ts', '.json'],
+  },
 };
