@@ -1,5 +1,3 @@
-import React from 'react';
+import ScanSubmitPage from './ScanSubmit.page'
 
-export default function SubmitScanPage() {
-  return <div>This is SubmitScanPage</div>;
-}
+export default ScanSubmitPage

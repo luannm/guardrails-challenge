@@ -1,5 +1,5 @@
 import React from 'react';
-import ScanResultView from './ScanResult.view'
+import ScanResultView from './ScanResult.view';
 
 const columns = [
   {
@@ -42,9 +42,8 @@ const ScanResultPage = () => {
    * 3) Update UI
    * 4) Write UT
    */
-  return (
-    <ScanResultView tableColumns={columns} tableData={data} />
-  );
-}
 
-export default ScanResultPage
+  return <ScanResultView tableColumns={columns} tableData={data} />;
+};
+
+export default ScanResultPage;

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Table, PageHeader, Button } from 'antd';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 /**
  * TODO:
@@ -12,9 +13,11 @@ const ScanResultView = ({ tableColumns, tableData, onSubmitClick }) => {
     <PageHeader
       title="Scan Result"
       extra={[
-        <Button onClick={onSubmitClick} type="primary">
-          Submit New Result
-        </Button>
+        <Link to="/submit" key="btnSubmit">
+          <Button type="primary">
+            Submit New Result
+          </Button>
+        </Link>
       ]}>
       <Table columns={tableColumns} dataSource={tableData} />
     </PageHeader>
