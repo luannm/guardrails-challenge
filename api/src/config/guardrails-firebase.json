@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "guardrails-excercise",
+  "private_key_id": "9ed54b306ad6d59637a85af93b8f483a3ca62a3d",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQDc0h7BKNwLd7I5\nIQPDvXT4KK3uc3RLBzxPilUX4vBXrDz4qVwN2clE5iGrniQNgV4TatdAg5YRf1AO\n6JRYuo+3iBjTUWVWCxuHkEIpK5fARNOkrX9olXatx1QQGq2p1M2T2X7mkRSZSIqD\nFnhEo558yZqr62V7pIm8xMPNKtxmiSw6nVTwgDs4UVLkcvsCuHOmnucUYdMaQUzW\ngf2BmVMM+NuUmTcOFN21QwqGF6bv14a9HnKXI6DtExrjBYsUn86dTrNLMNc5LVgV\nEtG+A+XhQP2j5AB9o/5uwqTYAA8jsGCeceXu80dtogV/M/BkzLutNlH76hpZ3Fa4\nAxW1e2VbAgMBAAECggEAHIc4OkaVQxVYMkxDHb80xONl281mWVPFJWuJjyKeYAfx\nqph1ZZlc3iizHJEQ4akfJngM+MSR7I8boIlzXOaMBFncsd8Crgk/qcBn48TCKrCu\n/R1TErJjQ5PhwYuIzcz0hY+O9v+y/xNMSHTsiHBGXKMjzJExVQt5UKjFDmplULOr\nk050uVHaya3F3gL2VtNxSppcDfTX0b5ekyV547IkXZVudMMeoyHGG0Swwk81ajm8\nbyvfXIolTx+CuZV75747PgfwyKe5/UpYkIZh/ArBHvWt03Z4mnPsvaO/avfFZ+BJ\nXlN6VD8F3Kh/LU4/MLcnvGEvR5LEDRMDGfDQu1BmvQKBgQD6T9JCy5Ji4XRbMdeh\nxywKPwxKuoCenXP583cPcSAqUdAP2RDMyIGBbaaUjLZMm3oMIaXWWGZpAUa3BrST\nt2dWTwkufaEdf4jgYevjMmQbJcvit19E26wzfYSW2XO7a5j2OfGtL4VslNrXuCAk\nBloSV2DACTbklJTlSopUk08H3QKBgQDh1rxqbxwcxtGc2ec22d0gkhRU+bK/7nzB\noSHtlyrAUMvrvb4peB9Ioqgi0OvDxz2n+T9rLOE2pzRKERdeI2QMzNKAxMcVIcn7\n+sL/bJhfzXLao4Aj4ePm5Kt15ceK0vmmvAR6SWs9wx+ffV7HGqJRvyW4TeEVdB1a\n1TzjQWmqlwKBgQDLwNvzuUfwq3sOnLTdIIat1IKJ9eSquJpmVROOg1Refngx3ky5\nlWEt3PbjJuNh2pFvfJhEsXKzePF6HMAzGfDJJc7ghCz5GQ5vL+ZW63bnTk33v7KS\nF4rF4x9ht6JoZn59t88NXYhrSYQWYu/uwyjgkzXTO+zuBjBpsNKHY93KFQKBgQDI\nDJSIX3Xyk7d4Dpm+v8weHug9wZYyaApA5wAL2z02cBvC7if1yf9EMzlm5dQCb4pR\nMfuYb3/sDr7F4U/mxsjIgeLxx91l/bFTMPTsl4B+VJopzG0k2+MqU2MCo5FXir00\nkhYRUNnbMu3fNInxKsmgSgcatHnurBWYsY0m7XmxbwKBgAODhb3lvG3TolZb+ADG\nJRrb3Lf5EphQNhEUUHbXHDITspPAgqS5g6ylQmTXyW0HwNU1og8FBsBu4BXwOEUJ\nF6OMhJoGnRQxdCFxkI0oxBHZ+ygX5rI9FxaxM5ep/PQhevK7Wy9ca3/vTD4u2ZKf\nWiS+1cZyJ3CDHBe7jcuKbl7O\n-----END PRIVATE KEY-----\n",
+  "client_email": "firebase-adminsdk-e45ll@guardrails-excercise.iam.gserviceaccount.com",
+  "client_id": "113246494224969868393",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-e45ll%40guardrails-excercise.iam.gserviceaccount.com"
+}

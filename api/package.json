@@ -11,10 +11,13 @@
     "dev": "yarn dev:build && npm-run-all --parallel dev:nodemon dev:watch"
   },
   "dependencies": {
-    "express": "^4.17.1"
+    "@babel/runtime": "^7.8.7",
+    "express": "^4.17.1",
+    "firebase-admin": "^8.10.0"
   },
   "devDependencies": {
     "@babel/core": "^7.8.7",
+    "@babel/plugin-transform-runtime": "^7.8.3",
     "@babel/preset-env": "^7.8.7",
     "babel-loader": "^8.0.6",
     "nodemon": "^2.0.2",
