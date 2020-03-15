@@ -1,5 +1,3 @@
-import React from 'react';
+import ScanDetailsPage from './ScanDetails.page';
 
-export default function ScanDetailsPage() {
-  return <div>This is ScanDetailsPage</div>;
-}
+export default ScanDetailsPage;

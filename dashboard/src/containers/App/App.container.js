@@ -1,5 +1,5 @@
 import React from 'react';
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, Redirect } from 'react-router-dom';
 import { Wrapper, Header, Content } from './App.container.styles';
 // Views
 import ScanResultpage from '../../views/ScanResult';
@@ -14,6 +14,9 @@ const AppContainer = () => (
         <Route exact path="/" component={ScanResultpage} />
         <Route path="/submit" component={ScanSubmitPage} />
         <Route path="/scan/:id" component={ScanDetailsPage} />
+        <Route path="*">
+          <Redirect to="/" />
+        </Route>
       </Switch>
     </Content>
   </Wrapper>

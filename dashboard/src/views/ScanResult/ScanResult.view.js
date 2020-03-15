@@ -21,14 +21,23 @@ const tableColumns = [
     dataIndex: 'status',
   },
   {
-    title: 'Findings',
+    title: 'Vulnerabilities',
     dataIndex: 'totalFindings',
-    render: (val) => <Tag color="blue">{`${val} issue(s) found`}</Tag>,
+    render: (val) => <Tag color={val > 0 ? 'red' : 'blue'}>{val}</Tag>,
   },
   {
     title: 'Date',
     dataIndex: 'date',
     render: (val) => val && <span>{moment.unix(val).format('MM/DD/YYYY - hh:mm:ss')}</span>,
+  },
+  {
+    title: 'Action',
+    key: 'action',
+    render: (text, record) => (
+      <Link to={`/scan/${record.id}`}>
+        <Button>View</Button>
+      </Link>
+    ),
   },
 ];
 
@@ -42,6 +51,7 @@ const ScanResultView = ({ tableData, loading }) => (
     ]}
   >
     <Table
+      rowKey="id"
       pagination={false}
       loading={loading}
       columns={tableColumns}
