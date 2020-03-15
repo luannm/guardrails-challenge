@@ -3,8 +3,8 @@ import { db } from '../services/firebase';
 const COLLECTION_NAME = 'scans';
 
 // Declare types
-enum ScanStatus {
-  QUEUED = 'Queue',
+export enum ScanStatus {
+  QUEUED = 'Queued',
   IN_PROGRESS = 'In Progress',
   SUCCESS = 'Success',
   FAILURE = 'Failure'
@@ -23,12 +23,12 @@ type ScanFindings = {
   }
 }
 
-type ScanResult = {
+export type ScanResult = {
   id?: string,
   status: ScanStatus,
   repoName: string,
   findings: ScanFindings[]
-  queueAt: number,
+  queuedAt: number,
   scanningAt?: number,
   finishedAt?: number
 }
@@ -57,5 +57,23 @@ export default {
       ...doc.data(),
     };
     return payload;
+  },
+  async saveResult(id, payload: ScanResult) {
+    const { repoName, status } = payload;
+    if (!repoName || !status) {
+      throw new Error('Missing required params');
+    }
+    let doc;
+    if (!id) {
+      // Create
+      doc = await db.collection(COLLECTION_NAME).add(payload);
+    } else {
+      // Update
+      doc = await db.collection(COLLECTION_NAME).doc(id).set(payload, { merge: true });
+    }
+    return {
+      id: doc.id,
+      ...payload,
+    };
   },
 };
