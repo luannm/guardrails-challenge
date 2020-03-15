@@ -1,3 +1,3 @@
-import AppContainer from './App.container'
+import AppContainer from './App.container';
 
-export default AppContainer
+export default AppContainer;

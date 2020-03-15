@@ -1,3 +1,3 @@
-import ScanResultPage from './ScanResult.page'
+import ScanResultPage from './ScanResult.page';
 
-export default ScanResultPage
+export default ScanResultPage;

@@ -1,3 +1,3 @@
-import ScanSubmitPage from './ScanSubmit.page'
+import ScanSubmitPage from './ScanSubmit.page';
 
-export default ScanSubmitPage
+export default ScanSubmitPage;
