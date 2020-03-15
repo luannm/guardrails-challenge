@@ -15,8 +15,9 @@ const ScanResultPage = () => {
       try {
         const data = await ScanService.fetchScanResults();
         setTableData(data);
-        setIsLoading(false);
       } catch (error) {
+        console.log('=== fetchResult error ===:', error);
+      } finally {
         setIsLoading(false);
       }
     }

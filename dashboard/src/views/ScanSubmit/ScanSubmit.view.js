@@ -1,59 +1,66 @@
 import React from 'react';
-import { PageHeader, Button, Form, Input, Radio } from 'antd';
+import { PageHeader, Button, Form } from 'antd';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
+import {
+  GeneralInfoForm,
+  VulnerabilityForm,
+} from './components/ScanSubmitForm';
 
 /**
  * TODO:
  * 1) Write UT
  */
 
-const ScanSubmitForm = ({ onCancel, onSave }) => {
-  const formLayout = {
-    labelCol: { span: 2 },
-    wrapperCol: { span: 6 },
-    labelAlign: 'left'
+const ScanSubmitView = ({ onSave, loading }) => { // eslint-disable-line
+  const [generalInfoForm] = Form.useForm();
+  const [vulnerabilityForm] = Form.useForm();
+  const saveForm = async () => {
+    // Validate fields
+    await generalInfoForm.validateFields();
+    await vulnerabilityForm.validateFields();
+    // Get values
+    const info = generalInfoForm.getFieldsValue();
+    const { data } = vulnerabilityForm.getFieldsValue();
+    onSave({
+      ...info,
+      findings: data,
+    });
   };
 
   return (
-    <Form {...formLayout} name="form" onFinish={onSave}>
-      <Form.Item
-        label="Repository"
-        name="RepositoryName"
-        rules={[{ required: true, message: 'Please input repository name!' }]}>
-        <Input />
-      </Form.Item>
-      <Form.Item
-        label="Status"
-        name="Status"
-        rules={[{ required: true, message: 'Please input your password!' }]}>
-        <Radio.Group defaultValue="queued">
-          <Radio.Button value="queued">Queued</Radio.Button>
-          <Radio.Button value="inProgress">In Progress</Radio.Button>
-          <Radio.Button value="success">Success</Radio.Button>
-          <Radio.Button value="failed">Failure</Radio.Button>
-        </Radio.Group>
-      </Form.Item>
-      <Form.Item>
-        <Button htmlType="submit" type="primary">
+    <PageHeader
+      title="Submit New Scan Result"
+      extra={[
+        <Button key="btnSave" loading={loading} type="primary" onClick={saveForm}>
           Save
-        </Button>
-        <Button onClick={onCancel}>Cancel</Button>
-      </Form.Item>
-    </Form>
-  );
-};
-
-const ScanSubmitView = ({ onSave, onCancel }) => {
-  return (
-    <PageHeader title="Submit New Scan Result">
-      <ScanSubmitForm onSave={onSave} onCancel={onCancel} />
+        </Button>,
+        <Link to="/" key="btnBack">
+          <Button type="danger">Cancel</Button>
+        </Link>,
+      ]}
+    >
+      <Form.Provider>
+        <GeneralInfoForm form={generalInfoForm} />
+        <Form.Item
+          labelCol={{ span: 2 }}
+          labelAlign="left"
+          label="Vulnerabilities"
+        >
+          <VulnerabilityForm form={vulnerabilityForm} />
+        </Form.Item>
+      </Form.Provider>
     </PageHeader>
   );
 };
 
 ScanSubmitView.propTypes = {
-  onSave: PropTypes.func,
-  onCancel: PropTypes.func
+  onSave: PropTypes.func.isRequired,
+  loading: PropTypes.bool,
+};
+
+ScanSubmitView.defaultProps = {
+  loading: false,
 };
 
 export default ScanSubmitView;

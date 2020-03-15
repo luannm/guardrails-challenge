@@ -1,22 +1,16 @@
 import axios from 'axios';
+import { SCAN_STATUS } from '../constant';
 
 // FIXME: Move baseUrl to .env file later
 const client = axios.create({
   baseURL: 'http://localhost:8080/api',
 });
 
-const STATUS = {
-  QUEUED: 'Queued',
-  IN_PROGRESS: 'In Progress',
-  SUCCESS: 'Success',
-  FAILURE: 'Failure',
-};
-
 const MAPPING_DATE_FIELD = {
-  [STATUS.QUEUED]: 'queuedAt',
-  [STATUS.IN_PROGRESS]: 'scanningAt',
-  [STATUS.SUCCESS]: 'finishedAt',
-  [STATUS.FAILURE]: 'finishedAt',
+  [SCAN_STATUS.QUEUED]: 'queuedAt',
+  [SCAN_STATUS.IN_PROGRESS]: 'scanningAt',
+  [SCAN_STATUS.SUCCESS]: 'finishedAt',
+  [SCAN_STATUS.FAILURE]: 'finishedAt',
 };
 
 const formatLocation = (location = {}) => {
@@ -48,6 +42,31 @@ const formatScanDetails = (data = {}) => {
   });
 };
 
+const formatScan = (data = {}) => {
+  const { findings, ...rest } = data;
+  return {
+    ...rest,
+    findings: findings.map(({
+      ruleId, type, description, severity, path, line,
+    }) => ({
+      ruleId,
+      type,
+      metadata: {
+        description,
+        severity,
+      },
+      location: {
+        path,
+        positions: {
+          begin: {
+            line,
+          },
+        },
+      },
+    })),
+  };
+};
+
 export default {
   async fetchScanResults() {
     const { data } = await client.get('/scans');
@@ -58,5 +77,10 @@ export default {
     const { data } = await client.get(`/scans/${id}`);
     const result = formatScanDetails(data);
     return result;
+  },
+  async saveScanResult(payload) {
+    const formattedPayload = formatScan(payload);
+    await client.post('/scans', formattedPayload);
+    return formattedPayload;
   },
 };
