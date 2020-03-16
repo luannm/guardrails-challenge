@@ -3,7 +3,7 @@ import { SCAN_STATUS } from '../constant';
 
 // FIXME: Move baseUrl to .env file later
 const client = axios.create({
-  baseURL: 'http://localhost:8080/api',
+  baseURL: 'http://localhost:5000/api',
 });
 
 const MAPPING_DATE_FIELD = {
