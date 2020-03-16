@@ -38,11 +38,11 @@ export default {
       const { status, id } = payload;
       // Update payload
       switch (status) {
-        case ScanStatus.IN_PROGRESS:
+        case 'In Progress' as ScanStatus.IN_PROGRESS:
           payload.scanningAt = Date.now();
           break;
-        case ScanStatus.SUCCESS:
-        case ScanStatus.FAILURE:
+        case 'Success' as ScanStatus.SUCCESS:
+        case 'Failure' as ScanStatus.FAILURE:
           payload.finishedAt = Date.now();
           break;
         default:
@@ -54,5 +54,5 @@ export default {
       console.log('=== updateScan error ===: ', error);
       res.status(400).json({ error: error.message });
     }
-  }
+  },
 };

@@ -1,0 +1,45 @@
+[{
+        "id": "qTg2HcvVPiVtDDHGUTfz",
+        "findings": [{
+            "type": "sast",
+            "metadata": {
+                "severity": "HIGH",
+                "description": "TLS InsecureSkipVerify set true."
+            },
+            "ruleId": "G402",
+            "location": {
+                "path": "connectors/apigateway.go",
+                "positions": {
+                    "begin": {
+                        "line": 60
+                    }
+                }
+            }
+        }],
+        "repoName": "Project 1",
+        "queuedAt": 1583832600,
+        "status": "Queued"
+    },
+    {
+        "id": "ub8O0zBwihbRwaJFvbV8",
+        "findings": [{
+            "type": "sast",
+            "metadata": {
+                "severity": "HIGH",
+                "description": "TLS InsecureSkipVerify set true."
+            },
+            "ruleId": "G402",
+            "location": {
+                "path": "connectors/apigateway.go",
+                "positions": {
+                    "begin": {
+                        "line": 60
+                    }
+                }
+            }
+        }],
+        "repoName": "Project 2",
+        "queuedAt": 1583832600,
+        "status": "In Progress"
+    }
+]
