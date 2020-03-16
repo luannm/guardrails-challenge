@@ -8,19 +8,21 @@ const ScanDetailsPage = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [tableData, setTableData] = useState([]);
 
-  useEffect(() => {
-    async function fetchData() {
-      try {
-        const data = await ScanService.fetchScan(id);
-        setTableData(data);
-      } catch (error) {
-        console.log('=== fetchDetails error ===:', error);
-      } finally {
-        setIsLoading(false);
-      }
+  async function fetchDetails() {
+    try {
+      const data = await ScanService.fetchScan(id);
+      setTableData(data);
+    } catch (error) {
+      console.log('=== fetchDetails error ===:', error);
+    } finally {
+      setIsLoading(false);
     }
-    fetchData();
+  }
+
+  useEffect(() => {
+    fetchDetails();
   }, []);
+
   return (
     <ScanDetailsView loading={isLoading} tableData={tableData} />
   );
